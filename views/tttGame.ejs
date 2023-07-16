@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" type="text/css" href="css/tttCSS.css">
+        
+</head>
+<body>
+    <h1 class = "title">Tic Tac No</h1> 
+
+    <!-- <div id="grid-container">
+        <div id = "item-1" class="grid-item"> </div>
+        <div id = "item-2" class="grid-item"> </div>
+        <div id = "item-3" class="grid-item"> </div>
+        <div id = "item-4" class="grid-item"> </div>
+        <div id = "item-5" class="grid-item"> </div>
+        <div id = "item-6" class="grid-item"> </div>
+        <div id = "item-7" class="grid-item"> </div>
+        <div id = "item-8" class="grid-item"> </div>
+        <div id = "item-9" class="grid-item"> </div>
+      </div> -->
+      
+    <div class="svg-wrapper">
+        <svg id="gameBoard" viewBox="0 0 90 90" xmlns="http://www.w3.org12000/svg">
+            <rect id="r_00" width="30" height="30" style="fill-opacity: 0.1;stroke-width:3; stroke:black;" />
+            <line id = "l_00" x1="0" y1="0" x2="30" y2="30" style="fill-opacity: 0.1;stroke-width:3; stroke:none;"/>
+            <line id = "l_00" x1="30" y1="0" x2="0" y2="30" style="fill-opacity: 0.0;stroke-width:3; stroke:none;"/>
+            <circle id="c_00" cx="15" cy="15" r="12" style="fill-opacity: 0.0;stroke-width:2; stroke:none;" />
+
+            <rect id="r_01" width="30" height="30" style="fill-opacity: 0.1;stroke-width:3; stroke:black;" transform="translate(30,0)" />
+            <line id = "l_01" x1="30" y1="0" x2="60" y2="30" style="fill-opacity: 0.1;stroke-width:3; stroke:none;"/>
+            <line id = "l_01" x1="60" y1="0" x2="30" y2="30" style="fill-opacity: 0.0;stroke-width:3; stroke:none;"/>
+            <circle id="c_01" cx="45" cy="15" r="12" style="fill-opacity: 0.0;stroke-width:2; stroke:none;" />
+
+            <rect id="r_02" width="30" height="30" style="fill-opacity: 0.1;stroke-width:3; stroke:black;" transform="translate(60,0)" />
+            <line id = "l_02" x1="60" y1="0" x2="90" y2="30" style="fill-opacity: 0.1;stroke-width:3; stroke:none;"/>
+            <line id = "l_02" x1="90" y1="0" x2="60" y2="30" style="fill-opacity: 0.0;stroke-width:3; stroke:none;"/>
+            <circle id="c_02" cx="75" cy="15" r="12" style="fill-opacity: 0.0;stroke-width:2; stroke:none;" />
+
+            <rect id="r_03" width="30" height="30" style="fill-opacity: 0.1;stroke-width:3; stroke:black;" transform="translate(0,30)" />
+            <line id = "l_03" x1="0" y1="30" x2="30" y2="60" style="fill-opacity: 0.1;stroke-width:3; stroke:none;"/>
+            <line id = "l_03" x1="30" y1="30" x2="0" y2="60" style="fill-opacity: 0.0;stroke-width:3; stroke:none;"/>
+            <circle id="c_03" cx="15" cy="45" r="12" style="fill-opacity: 0.0;stroke-width:2; stroke:none;" />
+
+            <rect id="r_04" width="30" height="30" style="fill-opacity: 0.1;stroke-width:3; stroke:black;" transform="translate(30,30)" />
+            <line id = "l_04" x1="30" y1="30" x2="60" y2="60" style="fill-opacity: 0.1;stroke-width:3; stroke:none;"/>
+            <line id = "l_04" x1="60" y1="30" x2="30" y2="60" style="fill-opacity: 0.0;stroke-width:3; stroke:none;"/>
+            <circle id="c_04" cx="45" cy="45" r="12" style="fill-opacity: 0.0;stroke-width:2; stroke:none;" />
+
+            <rect id="r_05" width="30" height="30" style="fill-opacity: 0.1;stroke-width:3; stroke:black;" transform="translate(60,30)" />
+            <line id = "l_05" x1="60" y1="30" x2="90" y2="60" style="fill-opacity: 0.1;stroke-width:3; stroke:none;"/>
+            <line id = "l_05" x1="90" y1="30" x2="60" y2="60" style="fill-opacity: 0.0;stroke-width:3; stroke:none;"/>
+            <circle id="c_05" cx="75" cy="45" r="12" style="fill-opacity: 0.0;stroke-width:2; stroke:none;" />
+
+            <rect id="r_06" width="30" height="30" style="fill-opacity: 0.1;stroke-width:3; stroke:black;" transform="translate(0,60)" />
+            <line id = "l_06" x1="0" y1="60" x2="30" y2="90" style="fill-opacity: 0.1;stroke-width:3; stroke:none;"/>
+            <line id = "l_06" x1="30" y1="60" x2="0" y2="90" style="fill-opacity: 0.0;stroke-width:3; stroke:none;"/>
+            <circle id="c_06" cx="15" cy="75" r="12" style="fill-opacity: 0.0;stroke-width:2; stroke:none;" />
+
+            <rect id="r_07" width="30" height="30" style="fill-opacity: 0.1;stroke-width:3; stroke:black;" transform="translate(30,60)" />
+            <line id = "l_07" x1="30" y1="60" x2="60" y2="90" style="fill-opacity: 0.1;stroke-width:3; stroke:none;"/>
+            <line id = "l_07" x1="60" y1="60" x2="30" y2="90" style="fill-opacity: 0.0;stroke-width:3; stroke:none;"/>
+            <circle id="c_07" cx="45" cy="75" r="12" style="fill-opacity: 0.0;stroke-width:2; stroke:none;" />
+
+            <rect id="r_08" width="30" height="30" style="fill-opacity: 0.1;stroke-width:3; stroke:black;" transform="translate(60,60)" />
+            <line id = "l_08" x1="60" y1="60" x2="90" y2="90" style="fill-opacity: 0.1;stroke-width:3; stroke:none;"/>
+            <line id = "l_08" x1="90" y1="60" x2="60" y2="90" style="fill-opacity: 0.0;stroke-width:3; stroke:none;"/>
+            <circle id="c_08" cx="75" cy="75" r="12" style="fill-opacity: 0.0;stroke-width:2; stroke:none;" />
+
+          
+        </svg>
+    </div>
+    <h2 id = "message" class = "title">Click to Start: X's Turn</h2>
+    <br>
+    
+    <div>
+        <h2 class = "title"><a href = "./labs" style="font-family: Lucida Sans">Head back to Labs page</a></h2>
+    </div>
+    <script src="js/tttJS.js"></script>
+</body>
+</html>

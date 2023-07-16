@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset = "utf-8">
+    <title>Alex Yung</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Boat Site</title>
+    <style>
+        .peopleCarouselImg img {
+            width: auto;
+            height: 400px;
+            max-height: 400px;
+            margin: auto;
+        }
+        .carousel-caption {
+            color: lightgoldenrodyellow;
+            background: darkolivegreen;
+            padding: 0;
+            margin: 0;
+            margin-bottom: 2.5vw;
+            opacity: .9;
+        }
+    </style>
+        
+</head>
+<body>
+    
+    <nav class = "navbar navbar-inverse">
+        <div class = "container">
+            <div class = "navbar-header">
+                <a class = "navbar-brand" href = "/">Stock Analysis</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#stockplace">About Us</a></li>
+                <li><a href="#start">Page 2</a></li>
+                <li><a href="#contact">Page 3</a></li>
+            </ul>
+        </div>
+        </nav>
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active peopleCarouselImg">
+                <img src="/img/investing/stonkImage.jpg" alt= "image not found">
+                <div class="carousel-caption">
+                    <h3>Gain Stonks</h3>
+                    <p>Become more knowledgeable about your stocks and what to buy/sell</p>
+                </div>
+            </div>
+
+            <div class="item peopleCarouselImg">
+                <img src="/img/investing/money.jpg" alt="image not found">
+                <div class="carousel-caption" >
+                    <h3>Gain Money</h3>
+                    <p>Potentially earn money from owning stocks</p>
+                </div>
+            </div>
+
+            <div class="item peopleCarouselImg">
+                <img src="/img/investing/book.jpg" alt="image not found">
+                <div class="carousel-caption">
+                    <h3>Gain Knowledge</h3>
+                    <p>Learn more about what each statistic of a stock means</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <!-- Section 1 -->
+    <div id="stockplace" class = "panel panel-info">
+        <h1 class = "panel-heading">What does this Site Do?</h1>
+        <p class = "panel-body">We take your favorite chosen stocks and find their important statistics, such as their PE ratio, EPS, and other price and earnings. Then, we pull up their commonly known competitors from Yahoo Finance for comparison. In addition, to compare them to entire market indices, we pull up the statistics of different indices for comparison as well.</p>
+    </div>
+
+    <div id="start" class = "panel panel-success">
+        <h1 class = "panel-heading">Start</h1>
+        <p class = "panel-body">You can start <strong><a href = "./stockAnalysis/inputForm">here</a></strong>. Start with entering the stock ticker of your company of choice and then choose what type of information you would like to see.</p>
+    </div>
+
+    <div id="contact" class = "panel panel-warning">
+        <h1 class = "panel-heading">Issues?</h1>
+        <p class = "panel-body">Contact us here: twitch.tv/hushVALO</p>
+    </div>
+
+
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+
+
+</body>

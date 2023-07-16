@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset = "utf-8">
+    <title>Alex Yung</title>
+    <meta http-equiv="X-UA-Compatible" content = "IE=edge">
+    <meta name = "viewport" content = "width=device-length, initial-scale = 1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300&family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <title>Bhyun's Site</title>
+    <style>
+        .title{
+            width:550px;
+            font-family:'Gentium Book Plus';
+            font-weight:700;
+            color:#dae351;
+            font-size:4vw;
+            text-align:center;
+            margin-bottom:50px;
+            line-height:1.2
+        }
+        .welcome{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            flex-direction:column;
+            width:100%;
+            height:100vh;
+            position:relative;
+            overflow:hidden
+            
+        }
+        .mainImage{
+            position:absolute;
+            width: 20%;
+        }
+
+        .mainImageLeft{
+            top:30%;
+            left:5%;
+        }
+        .mainImageRight{
+            top:30%;
+            right: 5%;
+        }
+        @media only screen and (max-width: 600px) {
+            mainImageLeft {
+                top: 10%;
+            }
+            mainImageRight{
+                top: 10%;
+            }
+        }
+
+        .options{
+            display:flex;
+            font-size: 2vw;
+        }
+        a:link {
+            text-decoration: none;
+        }
+        .opt1{
+            color: #0060B6;
+            padding: 10px;
+        }
+        .opt1:hover{
+            color:#00A0C6;
+        }
+        .opt2{
+            color: #0060B6;
+            padding: 10px;
+        }
+        .opt2:hover{
+            color:#00A0C6; 
+        }
+        .centered{
+            font-family: "Raleway";
+            text-align: center;
+        }
+        .container{
+            text-align: center;
+        }
+    </style>
+        
+</head>
+<body>
+    <section class="welcome">
+        <h1 class="title">Find Your Money Making Stock</h1>
+        <img src="/img/investing/bank.jpg" alt="rain?" class="mainImage mainImageLeft"/>
+        <img src="/img/investing/stonkImage.jpg" alt="sun?"class="mainImage mainImageRight"/>
+        <div class = "options">
+            <form action = "./stockFormHandler" method = "GET" class = "centered">
+             <p class = "centered">Enter Your Stock</p>
+             <input type = "text" name = "stock" value = "" step=".0001"><span></span>
+             <input type = "submit" value = "submit" />
+            </form>   
+        </div>
+        
+        <div>
+            <h1 class = "centered">Example Stocks</h1>
+            <div class = "container">
+                <ul>
+                    <li>AAPL (apple)</li>
+                    <li>MFST (microsoft)</li>
+                    <li>SONY</li>
+                    <li>LLY (eli lily)</li>
+                </ul>
+        </div>
+    </section>
+    
+    
+    <div>
+        <h2 class = "centered"><a href = ".">Back to Home</a></h2>
+    </div>
+</body>
+</html>

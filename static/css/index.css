@@ -1,0 +1,176 @@
+body{
+    background: lightgoldenrodyellow;
+}
+.title{
+    font-family:Raleway;
+    font-size: 3vw;
+    margin: auto;
+    margin-left: 2vw;
+}
+.topbar{
+    margin: 0 auto;
+    width: 100%;
+    background-color:aquamarine;
+    padding: 0px;
+    display: flex;
+    align-content: flex-start;
+    justify-content: space-between;
+    max-width: 100%;
+}
+.button_container{
+    float: right;
+    position: static; /*static, relative, absolute, fixed, sticky */
+    /*box-sizing: border-box (makes height and width the total height and stuff*/
+    padding-right: 20px;
+}
+.button_container a {
+    float: left;
+    color: blue;
+    text-align: center;
+    padding: 15px;
+    margin: 15px;
+    text-decoration: none;
+    font-size: 3vw;
+    line-height: 25px;
+    font-weight:bolder;
+    border-radius: 4px;
+  }
+.button_container a:hover{
+    color:#059ce8;
+    background: none;
+
+}
+.button{
+    font-family: Josefin Sans;
+    font-size: 2vw;
+}
+.index{
+    text-align: center;
+    font-family:"Gentium Book Plus";
+    font-size:4vw;
+    padding:20px;
+}
+@media only screen and (max-width: 600px) {
+  .button_container a {
+    font-size: 4vw;
+  }
+  .title{
+      font-size: 5vw;
+  }
+  .index{
+      font-size: 5vw;
+  }
+}
+.ind1{
+    background-color:black;
+    display:grid;
+    grid-template-columns: auto;
+    justify-content: space-around;
+    align-content: space-around;
+    border-radius: 5px;
+    border-color:black;
+    border: 3px solid black;
+  }
+.grid{
+    display:grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-around;
+    align-content: space-around;
+    filter: brightness(100%);
+    -webkit-filter: brightness(100%);
+    margin:20px;
+}
+.grid div:hover{
+    -webkit-filter: brightness(100%);
+    filter: brightness(100%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.grid div:hover .imgDesc{
+    visibility:visible;
+    opacity:.8;
+}
+.centered{
+    align-items: center;
+    justify-content: center;
+    display:flex;
+    align-content:flex-start;
+    text-align: center;
+}
+.fill{
+    flex-shrink: 0;
+    max-width:20vw;
+    max-height: 20vw;
+}
+.imgDesc {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: black;
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    text-align: center;
+    font-size:4vw;
+    font-family: "Gentium Book Plus";
+    vertical-align: middle;
+    text-decoration:none;
+    padding:3vw;
+    padding-top: 2vw;
+    /* transition effect. not necessary */
+    /* transition: opacity .2s, visibility .2s; */
+  }
+@media (pointer:none), (pointer:coarse) {
+    .imgDesc{
+        visibility: visible;
+        opacity: 1;
+        position: relative;
+    }
+    .fill{
+        visibility: hidden;
+    }
+    
+}
+  /*the contact me section*/
+.sectorbox{
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+.titleheader{
+    margin: 0;
+    width: auto;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    flex: 1 0 100%;
+    animation: whoiam 3s 1;
+    font-size: 50px;
+    text-align: center;
+}
+.contactformat{
+    display:flex;
+    justify-content: space-around;
+    align-content:flex-start;
+    filter: brightness(100%);
+    -webkit-filter: brightness(100%);
+    margin:20px;
+}
+.contactgroup{
+    flex-shrink: 0;
+    max-width:15vw;
+    max-height: 15vw;
+}
+.contactinfo{
+    font-family: "Gentium Book Plus";
+    font-size: 5vw;
+    width: 60%;
+    margin: 20px;
+}

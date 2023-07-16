@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/certificate.css">
+    <title>Bhyun's Site</title>
+        
+</head>
+<body>
+    
+    <% if(realPerson == false){ %> 
+    <div class = "certBack1" 
+    style = "border: 3px solid gold;
+    margin: 20px;
+    background-image: url('img/goldBackground4.jpg');
+    background-size: cover;">
+        <h1 class = "centered">True NPC certificate</h1> 
+        <hr style = "width: 80%; border: 1px solid darkgoldenrod">
+        <p class = "subhead"> The following award is only for those who are laz-truly
+        dedicated towards being a non-playable character</p>
+        
+        <p class = "nameplate">You</p>
+        <hr style = "border: gold 2px solid; width: 50%; padding-top: 0; margin-top: 0">
+        
+        <p class = "namesubhead"> This certificate is given to you for your achievement in 
+        being unable to click a singular button in this certificate simulator</p>
+        
+        <div class = "twobox">
+            <h2>Signed: Cicero and Nero</h2>
+        </div>
+        
+        
+    </div>
+    <% } else if(realPerson == true) { %>
+    <!--<p>TBD, name: <%= n %> , type: <%= t %> , association: <%= a %>, color: <%= c %></p>-->
+    <div style = "border: 3px solid <%=c%>;
+    margin: 20px;
+    background-image: url('img/certBackground1.jpg');
+    background-size: 100% 500px; max-width:100%; height:auto;">
+        <% if( t === "default"){ %> 
+        <h1 class = "centered"> Certificate of NPC</h1> 
+        <% } else if( t === "intelligence"){ %> 
+        <h1 class = "centered"> Certificate of Brian</h1> 
+        <% } else if( t === "strength"){ %> 
+        <h1 class = "centered"> Certificate of Gymbro</h1> 
+        <% } else if( t === "geology"){ %> 
+        <h1 class = "centered"> Certificate of Actual Gabbro</h1> 
+        <% } else if( t === "Sun Tzu's Legacy"){ %> 
+        <h1 class = "centered"> Godly Tactician Certificate</h1> 
+        <% } else if(t === "...being built different"){ %>
+        <h1 class = "centered"> Wow, You Know Web Dev </h1> 
+        <% } %>
+        <hr style = "width: 80%; border: 1px solid darkgoldenrod">
+        <p class = "subheadDef"> The following award is only for those who are incredibly dedicated 
+        towards life, liberty, and their pursuit of <%=t %> </p>
+        
+        <p class = "nameplateDef"><%=n%></p>
+        <hr style = "border: gold 2px solid; width: 50%; padding-top: 0; margin-top: 0">
+        
+        <% if( t === "default"){ %> 
+        <p class = "namesubheadDef"> You're somewhat of an NPC and you know it</p> 
+        <% } else if( t === "intelligence"){ %> 
+        <p class = "namesubheadDef"> This certificate is given to you for your achievement in 
+        being able to think </p> 
+        <% } else if( t === "strength"){ %> 
+        <p class = "namesubheadDef"> This certificate is given to you for your achievement in 
+        being a muscular legend who doesn't skip a single day at the gym.</p> 
+        <% } else if( t === "geology"){ %> 
+        <p class = "namesubheadDef"> This certificate is given to you.</p> 
+        <% } else if( t === "Sun Tzu's Legacy"){ %> 
+        <p class = "namesubheadDef"> This certificate is given to you for your achievement for
+        being that guy who comments - Sun Tzu after every quote you state. Very credible.</p> 
+        <% } else if(t === "...being built different"){ %>
+        <p class = "namesubheadDef"> Lmao how did u even get here. </p> 
+        <% } %>
+        
+        <div class = "twoboxDef">
+            <% if(parseInt(stampCost) > 100){ %>
+            <img src = "img/goldstamp.jpg" class = "stamp1">
+            <% } else if(parseInt(stampCost) < 100) {%>
+            <img src = "img/stampcheap.png" class = "stamp1">
+            <% } else if(parseInt(stampCost) === 100){%>
+            <img src = "img/greenstamp.jpg" class = "stamp1">
+            <% } %>
+            <h2 style= "margin-right: 20px">Signed: </h2>
+            <h2 class = "signature"> <%= a %><h2>
+        </div>
+        
+         
+    </div>
+    
+    
+    
+    
+    
+    <% } %>
+        
+        
+        
+
+    <div>
+        <h2 class = "centered"><a href="./labs" style="text-color: white">Back to Labs Page</a></h2>
+    </div>
+</body>
+</html>

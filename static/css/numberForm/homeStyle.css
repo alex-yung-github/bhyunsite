@@ -1,0 +1,14 @@
+.peopleContainer{
+    display: flex;
+    justify-content: center;
+}
+.peopleOption{
+    margin: 20px;
+}
+.centered{
+    text-align: center;
+}
+.description{
+    text-align: center;
+
+}

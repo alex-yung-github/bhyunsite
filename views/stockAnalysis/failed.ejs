@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset = "utf-8">
+    <title>Alex Yung</title>
+    <meta http-equiv="X-UA-Compatible" content = "IE=edge">
+    <meta name = "viewport" content = "width=device-length, initial-scale = 1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300&family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <title>Bhyun's Site</title>
+    <style>
+        .title{
+            text-align: center;
+            font-family: "Josefin Sans";
+        }
+        .subhead{
+            font-size: 15px;
+            font-family: "Gentium Book Plus";
+            text-align: center;
+        }
+        div.container{
+            text-align: center;
+        }
+        ul{
+            display: inline-block;
+            text-align: left;
+        }
+    </style>
+        
+</head>
+<body>
+    <h1 class = "title">Unfortunately, that stock is not valid or does not work. Or, the API has failed. Refresh to try again.</h1>
+    <p class = "subhead">Common Error Examples:</p>
+    <div class = "container">
+        <ul>
+            <li>AAP (not an ctual company)</li>
+            <li>apple (not the stock ticker)</li>
+            <li>AAPL-. (server does not truncate extra symbols)</li>
+        </ul>
+        <p><strong>Error Message: <%= item.error %></strong></p>
+    </div>
+</body>
+</html>

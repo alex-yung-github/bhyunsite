@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+    <h1 class = "text-center p-2 pb-1">Hello <span id = "usernameE"><%= username %></span></h1>
+    <%  const items = ["Class", "Strength", "Intelligence", "Defense", "Vitality", "Special", "Speed"]; %>
+    <div class = "text-center">
+        <h3>Your Visits: <span id = "cookie1"></span></h3>
+        <h3 class= "text-center p-2 pb-1 d-inline">Level </h3><h3 class = "text-center d-inline" id = "lvl"><%= results.p_level %></h3> 
+        <h3 class = "text-center">Class ID: <span id = "classID_place"><%= results.p_classID %></span></h3>
+        <h3 class = "text-center" id = "class_name_place"><%= class_name %></h3>
+    </div>
+    <% let count = 0 %>
+    <% let itemcount = 0%>
+    <div class = "text-center">
+        <h3 class = "text-center d-inline">XP: </h3><h3 class= "d-inline text-center p-2 pb-1"><span  id = "xp_update"><%= results.xp %></span> / <span id = "xp_update2">number</span> </h3>
+    </div>
+    <div class = "container">
+        <% for (const [key, value] of Object.entries(results)) { %>
+            <% if(count >= 3 && count <=9){ %>
+            <div class = "row">
+                <div class = "col-sm-4"></div>
+                <div class = "text-center border col-sm-2"><%= items[itemcount] %></div>
+                <div class = "text-center border col-sm-2" id = <%= items[itemcount] %>><%= value %></div>
+                <% if(count >= 4) { %>
+                 <button class = "text-center col-sm-1"onclick="incrStat(<%= items[itemcount] %>)">+</button>
+                <% } %>
+                <div class = "col-sm-4"></div>
+                <% itemcount += 1 %>
+            </div>
+            <% } %>
+            <% count += 1 %>
+        <% } %>
+        <h5 class = "text-center p-2"> Stat Points: <span id = "statpts"><%= results.statPts %></span></h5>
+        
+    </div>
+    
+    <div><h1 class = "p-4 text-center">Train:[TBD]</h1></div>
+    
+    <div class = "row text-center">
+        <div class = "col-sm-3" id = "goblin">Fight Goblin</div>
+        <div class = "col-sm-3" id = "troll">Fight Troll</div>
+        <div class = "col-sm-3" id = "ogre">Fight Ogre</div>
+        <div class = "col-sm-3" id = "gnaij">Fight Gnaij</div>
+    </div>
+
+    <div>
+        <p class = "text-center"><a href="../classform">Back to Character Select</a></p>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+    <script>
+        const numlist = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"]
+        doTheFetch()
+        async function doTheFetch() {
+            
+        const response = await fetch('/2023ayung/xpReq')
+        const data = await response.json()
+        console.log(data)
+        let counter_span = document.getElementById("xp_update2")
+        let temp = document.getElementById("lvl")
+        let tempVal = numlist[temp.innerHTML]
+        console.log(tempVal)
+        counter_span.innerHTML = data[tempVal]; 
+        }
+    
+        async function updateDatabase(item){
+            items = ["Username", "Level", "ClassID", "Class", "Strength", "Intelligence", "Defense", "Vitality", "Special", "Speed", "XP", "StatPTS"]
+            transferList = ["p_username", "p_level", "p_classID", 'p_className', "p_str", "p_intel", "p_def", "p_vit", "p_special", "p_spd", "xp", "statPts"]
+            // let element = document.getElementById(item.id)
+            // let levelelement = document.getElementById("lvl")
+            let usernameelement = document.getElementById("usernameE")
+            // let classIDelement = document.getElementById("classID_place")
+            // let element1 = document.getElementById("Strength")
+            // let element2 = document.getElementById("Intelligence")
+            // let element3 = document.getElementById("Defense")
+            // let element4 = document.getElementById("Vitality")
+            // let element5 = document.getElementById("Special")
+            // let element6 = document.getElementById("Speed")
+            // let xpElement = document.getElementById("xp_update")
+            let statptsElement = document.getElementById("statpts")
+            // let sendList = []
+            // sendList.push(usernameelement.innerHTML)
+            // sendList.push(levelelement.innerHTML)
+            // sendList.push(classIDelement.innerHTML)
+            // sendList.push(classelement.innerHTML)
+            // sendList.push(element1.innerHTML)
+            // sendList.push(element2.innerHTML)
+            // sendList.push(element3.innerHTML)
+            // sendList.push(element4.innerHTML)
+            // sendList.push(element5.innerHTML)
+            // sendList.push(element6.innerHTML)
+            // sendList.push(xpElement.innerHTML)
+            // sendList.push(statpts.innerHTML)
+            // console.log(sendList)
+            let url = "../heroProcessing?" + transferList[0] + "=" + usernameelement.innerHTML + "&" + transferList[items.indexOf(item.id)] + "=" + item.innerHTML + "&" + "statPts=" + statptsElement.innerHTML
+            console.log(url)
+            const response = await fetch(url)
+            const data = await response.json()
+        }
+        function incrStat(item){
+            console.log(item)
+            let stats = document.getElementById("statpts")
+            console.log(stats.innerHTML)
+            if(parseInt(stats.innerHTML) > 0){
+                item.innerHTML = parseInt(item.innerHTML) + 1
+                stats.innerHTML = parseInt(stats.innerHTML) - 1
+            }
+            updateDatabase(item);
+        }
+
+        let goblinF = document.getElementById("goblin")
+        let trollF = document.getElementById("troll")
+        let ogreF = document.getElementById("ogre")
+        let gnaijF = document.getElementById("gnaij")
+        
+        function get_cookie(cookie_name) {
+            console.log(document.cookie)
+          const all_cookies_array = document.cookie.split(';');
+          console.log(all_cookies_array)
+          const specific_cookie_row = all_cookies_array.find( function(elem){
+            return elem.startsWith(`${cookie_name}=`);
+          })
+          const cookie_kv_array = specific_cookie_row.split('=');
+          return decodeURIComponent(cookie_kv_array[1])
+        }
+        cookie1element =  document.getElementById("cookie1"); 
+        cookie1element.innerHTML = get_cookie("herovisits")
+    </script>
+</body>
+</html>

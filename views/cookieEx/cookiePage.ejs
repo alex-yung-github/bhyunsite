@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhyun's Site</title>
+    <style>
+        body{
+            background:lightgoldenrodyellow;
+            font-size: 20px;
+        }
+        .title{
+            text-align: center;
+        }
+        .explaining{
+            text-align: center;
+            padding: 5px;
+        }
+        .centered{
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;
+        }
+        ul{
+            display: margin; 
+            margin: 0 auto;
+            text-align: center;
+        }
+        .text-center{
+            text-align: center;
+        }
+    </style>
+        
+</head>
+<body>
+    
+    <p class = "text-center" > Visits: <%= visits %> </p>
+    
+    <% if(visits <= 5){ %>
+        <p class = "explaining"> To see cookies, inspect the page (ctrl+shift+i), click "storage" in the horizontal top  bar,
+            and then click "cookies" on the left sidebar</p>
+        <br>
+        <p class = "explaining"> If you can't do that, I'll list them below:</p>
+        <ul>
+            <li id= "cookie1"></li>
+            <li id = "cookie2"></li>
+        </ul>
+        <div>
+            <p class = "title"><a href="./labs">Back to Labs.</a></p>
+        </div>
+        
+    <% }  else { %>
+        <h3 class = "text-center"> You have visited this page too many times </h3>
+        <img class = "centered" src = "img/banana.png">
+    <% } %>
+    
+    
+    
+    <script>
+        //Example of how to find element: const get_cookie = (cn) => decodeURIComponent(document.cookie.split('; ')
+    //.find((e)=>e.startsWith(`${cn}=`)).split('=')[1])
+
+        cookie1element =  document.getElementById("cookie1"); 
+        cookie2element =  document.getElementById("cookie2"); 
+        cookie1element.innerHTML = decodeURIComponent(document.cookie.split(";")[0])
+        cookie2element.innerHTML = decodeURIComponent(document.cookie.split(";")[1])
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        .centerplease{
+            display: block;
+              margin-left: auto;
+              margin-right: auto;
+        }
+        .cookie{
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class = "text-center">Hello <%= full_name %></h1>
+    <p class = "text-center">You are currently a <%= playerClass %></p>
+    <p class = "text-center">Player ID: <span id = "id"><%= id %></span></p>
+    <img class = "centerplease" src = <%= picture %> alt = "No Picture">
+    
+    <h1 class = "text-center">Bored? Click Away! </h1>
+    <h2 class = "text-center"> Your Cookie: </h2>
+    <img class = "centerplease cookie" id = "clickPic" src = "img/oAuthLab/cookie.png" alt = "No Picture" onclick="incrClicks()">
+    <h3 class = "text-center" id = "message">Click your time away...</h3>
+    <div class = "container">
+        <h2 class = "display-4 text-center "> Clicks <span id = "click_counter"><%=clicks%></span></h4>
+        <h4 class = "text-center text-muted" >Your Currency</h4>
+    </div>
+    <div class = "container">
+        <h2 class = "display-4 text-center"> Upgrades <span id = "upgrade_counter"><%=upgrades%></span></h4>
+        <h4 class = "text-center text-muted" >Each Adds 1 Click Per Click</h4>
+    </div>
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" onclick="incrUps()">+</button>
+    </div>
+    <div class = "container">
+        <h2 class = "display-4 text-center"> Ascensions <span id = "ascension_counter"><%=ascensions%></span></h4>
+        <h4 class = "text-center text-muted" >Each Ascension Multiplies Clicks by 5</h4>
+    </div>
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" onclick="incrAscensions()">+</button>
+    </div>
+  
+    <br>
+    <div class = "container">
+        <p class = "text-center"><a href="./verificationPage">Back to Login Page</a></p>
+    </div>
+    
+    <script>
+        async function updateDatabase(clicks, upgrades,ascensions){
+            let id = document.getElementById("id").innerHTML
+            let url = "./clickProcessing?clicks=" + clicks + "&upgrade=" + upgrades + "&ascensions=" + ascensions + "&id=" + id;
+            console.log(url)
+            const response = await fetch(url)
+            const data = await response.json()
+        }
+        function incrClicks(){
+            let mess = document.getElementById("message")
+            mess.innerHTML = "Click your time away..."
+            
+            let clickItem = document.getElementById("click_counter")
+            let prevClicks = clickItem.innerHTML
+            let newClicks = parseInt(prevClicks)
+            let upVal = parseInt(document.getElementById("upgrade_counter").innerHTML)
+            let ascVal = parseInt(document.getElementById("ascension_counter")).innerHTML)
+            let addVal = 0
+            if(ascVal != 0){
+                addVal = (1 + upgrade_counter) * (5 * ascension_counter)
+            }
+            else{
+                addVal = 1 + upgrade_counter
+            }
+            newClicks = newClicks + addVal
+            clickItem.innerHTML = newClicks
+            updateDatabase(newClicks, document.getElementById("upgrade_counter").innerHTML, document.getElementById("ascension_counter").innerHTML)
+        }
+        function updateClicks(number){
+            let mess = document.getElementById("message")
+            mess.innerHTML = "Click your time away..."
+            
+            let clickItem = document.getElementById("click_counter")
+            let prevClicks = clickItem.innerHTML
+            let newClicks = parseInt(prevClicks) + number;
+            clickItem.innerHTML = newClicks
+        }
+        function incrUps(){
+            let clickItem = document.getElementById("click_counter")
+            let prevClicks = clickItem.innerHTML
+            if(prevClicks >= 10){
+                updateClicks(-10)
+                let upItem = document.getElementById("upgrade_counter")
+                let prevUps = upItem.innerHTML
+                let newUps = parseInt(prevUps) + 1;
+                upItem.innerHTML = newUps
+                updateDatabase(document.getElementById("click_counter").innerHTML, newUps, document.getElementById("ascension_counter").innerHTML)
+            }
+            else{
+                let mess = document.getElementById("message")
+                mess.innerHTML = "Not Enough Clicks for Upgrade"
+            }
+        }
+        function incrAscensions(){
+            let clicks= document.getElementById("click_counter").innerHTML
+            let ascensions = document.getElementById("ascension_counter").innerHTML
+            let ascVal = 2500 + ascensions**2 * 5000
+            let prevClicks = clickItem.innerHTML
+            if(prevClicks >= ascVal){
+                updateClicks(-1 * clicks)
+                let upgradeItem = document.getElementById("upgrade_counter")
+                upgradeItem.innerHTML = 0
+                let ascItem = document.getElementById("ascension_counter")
+                let prevAsc = ascItem.innerHTML
+                let newAsc = parseInt(prevAsc) + 1;
+                ascItem.innerHTML = newAsc
+                updateDatabase(document.getElementById("click_counter"), document.getElementById("upgrade_counter").innerHTML, newAsc)
+            }
+            else{
+                let mess = document.getElementById("message")
+                mess.innerHTML = "Not Enough Clicks for Ascension"
+            }
+        }
+    </script>
+    
+</body>
+</html>

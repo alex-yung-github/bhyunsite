@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/madlib.css">
+    <title>Bhyun's Site</title>
+        
+</head>
+<body>
+    
+    <form action="madlib_handler" method="POST">
+        <div class = "choiceContainer">
+            <!--<div class = "choiceHolder">-->
+            <!--    <label for "n"> Name </label>-->
+            <!--    <input name="name" type = "text" id = "n">-->
+            <!--</div>-->
+            <div class = "choiceHolder">
+                 <h3>Please select certificate type:</h3>
+                <input name="type" type="radio" value="default" id = "a" checked="checked">
+                <label for="a">Certificate for Default Daryls</label><br>
+                <input name="type" type="radio" value="intelligence" id = "b">
+                <label for="a">Certificate for Intelligence</label><br>
+                <input name="type" type="radio" value="strength" id = "c">
+                <label for="b">Certificate for Strength</label><br>
+                <input name="type" type="radio" value="geology" id = "c">
+                <label for="b">Certificate for Geo</label><br>
+                <input name="type" type="radio" value="Sun Tzu's Legacy" id = "d">
+                <label for="c">Mystery Certificate?!?!</label><br>
+            </div>
+            <div class = "choiceHolder">
+                 <h3>Please choose your association:</h3>
+                <input name="association" type="radio" value="Default Daniel" id = "q" checked="checked">
+                <label for="q">Default Daniel</label><br>
+                <input name="association" type="radio" value="United Countries Department of Farmland Security" id = "r">
+                <label for="r">United Countries Department of Farmland Security</label><br>
+                <input name="association" type="radio" value="United Countries Department of Injustice" id = "s">
+                <label for="s">United Countries Department of Injustice</label><br>
+                <input name="association" type="radio" value="Nonunited Countries National Deduction Council" id = "t">
+                <label for="t">Nonunited Countries National Deduction Council<label><br>
+                <input name="association" type="radio" value="Mist-ery lmao" id = "u">
+                <label for="u">Mystery?!?!</label><br>
+            </div>
+            
+            <div class = "choiceHolder">
+                <label for "n"> <h3 class = "centered">Name</h3> </label>
+                <div class = "centered">
+                <input name="name" type = "text" id = "n" >
+                </div>
+                 <h3 class = "centered">Please select the price of your stamp in $ (0-200):</h3>
+                <div class = "centered">
+                <input name="stampCost" type="number" id = "g" value=0 >
+                </div>
+                
+            </div>
+            
+            <div class = "choiceHolder">
+                <label for="v">Choose your favorite color: </label>
+                <input type="color" name="inp_color" id = "v">
+            </div>
+            
+            
+        </div>
+        <div class = "centered"><input type="submit" class = "centered" id = "submitButton"></div>
+    </form>
+    
+    <div>
+        <h2 class = "centered"><a href="./labs">Back to Labs Page</a></h2>
+    </div>
+    
+    
+    
+    
+</body>
+</html>

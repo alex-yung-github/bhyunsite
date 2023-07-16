@@ -1,0 +1,120 @@
+.navbar{
+    margin: 0 auto;
+    background-color: #501B1D;
+    display: flex;
+    align-content: flex-start;
+    justify-content: space-between;
+    max-width: 100%;
+    color: white;
+}
+.button_container{
+    display:flex;
+    position: relative;
+}
+.tab_button{
+    display: block;
+    border: none;
+    padding: 15px;
+    font-family: "Geneva";
+    font-size: 2vw;
+    background: #501B1D;
+    color: white;
+}
+.tab-button-active{
+    background: #2E1114;
+}
+.tab-content{
+    display: none;
+}
+.tab-content-active{
+    display: block;
+}
+body{
+    background:white;
+    margin: 0;
+    padding: 0;
+}
+.titleholder{
+    padding: 15px;
+}
+.title{
+    text-align: center;
+    font-family:Raleway;
+    font-size: 3vw;
+    margin: auto;
+    margin-left: 2vw;
+}
+.centered{
+    text-align:center;
+}
+
+.gameTitle{
+    padding: 0;
+    margin: 0;
+    padding-top: 15px;
+    color: white;
+}
+.gameDesc{
+    color: #FFFFF0;
+}
+.gameImage{
+    background-color: white;
+    background: #501B1D;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+.gameContainer{
+    padding: 15px;
+    /*background-image: linear-gradient(to right, black, white);*/
+    background-color: #64485C;
+    padding-left: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.formContainer{
+    padding: 15px;
+    /*background-image: linear-gradient(to right, #dd8422, black);*/
+    background-color: #64485C;
+    padding-left: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.go{
+    background: white;
+    padding: 15px;
+    margin: auto;
+    text-decoration: none;
+}
+.go:active{
+    background: gray;
+}
+.gocontainer{
+    margin: auto;
+    margin-right: 0;
+}
+.bigImage{
+    background-size: 150px 150px;
+    max-width: 300px; 
+    max-height: 300px;
+}
+
+
+
+.footer-part{
+    background-color:#83677B;
+    margin: none;
+    padding: 3px;
+    
+}
+
+
+
+
+
+
+
+
+
+

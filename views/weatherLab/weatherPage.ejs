@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!--<link rel="stylesheet" type = "text/css" href="css/numberForm/numberPage.css">-->
+    <style> 
+    /*stylization, I won't describe this because I will mainly be going over the embedded javascript
+    logic*/
+        .fact{
+            font-size: 15px;
+            font-family:'Lucida Sans';
+            text-align: center;
+            margin: 10;
+            padding: 0;
+        }
+        .centeredTitle{
+            font-size: 30px;
+            margin: 20px;
+            text-align: center;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            text-align: center;
+            overflow-y: scroll;
+            max-height: 80%;
+            border: solid black 3px;
+        }
+        .statistic{
+            margin: 0;
+            font-size: 15px;
+            width: max-content;
+            text-align: center;
+        }
+        .periodName{
+            margin: 0;
+            margin-top: 12px;
+            text-align: center;
+        }
+        .weatherIcon{
+            text-align: center;
+            display: flex
+            justify-content: center;
+        }
+        .subcontainer{
+            display: flex;
+            flex-direction: column;
+            padding: 1vw;
+        }
+        .time{
+            margin-left: auto;
+            margin-right: auto;
+            width: max-content;
+            margin: 0;
+        }
+        .centered a{
+            text-decoration: none;
+            font-family: "Georgia";
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    
+    <!--function that converts the 24:00 time given by the weather.gov API into 12:00 time-->
+    <% function convert(input) { %>
+    <% return moment(input, 'HH:mm').format('h:mm A'); %>
+    <% } %>
+    <!--Tells the user what latitude and longitude they inputted-->
+    <p class = "centeredTitle">Latitude: <%= lat %> | Longitude: <%= long %></p>
+    <!--parses the hourly forecasts from the data given by the https request-->
+    <% items = weatherData.properties.periods %>
+    <p class = "centeredTitle">Weather for 24 hours: </p>
+    <!--this if loop only iterates through 24 maximum hourly periods so it only gives a day's worth of weather data-->
+    <% if(items.length > 24){ number = 24} else { number = items.length}%>
+    <div class = "container">
+        <!--log is for debugging purposes; lets me see the what data I have about one of the hourly periods-->
+        <% console.log(items[6]) %> 
+        <!--for loop to iterate through 24 periods-->
+        <% for(let i = 0; i < number; i++){ %>
+            <!--this js parses the start and end time of the ith period-->
+            <% placeStart = items[i].startTime.indexOf("T") %>
+            <% placeEnd = items[i].endTime.indexOf("T") %>
+            <% timeStart = items[i].startTime.slice(placeStart+1, placeStart + 6)%>
+            <% timeEnd = items[i].endTime.slice(placeEnd+1, placeEnd + 6) %>
+            <!--i gather the day which the weather data is for-->
+            <% day = items[i].startTime.slice(placeStart-4, placeStart) %>
+            <!--parsing of the precipitation probability of the current period and the icon link-->
+            <div class = "subcontainer">
+                <% precipitationProb = items[i].probabilityOfPrecipitation.value %>
+                <div class = "weatherIcon">
+                    <% if(parseInt(precipitationProb) === 0){ %>
+                        <% tempVal = items[i].icon %>
+                        <% removalIndex = tempVal.indexOf(",0") %>
+                        <% newLink = tempVal.slice(0, removalIndex) + tempVal.slice(removalIndex+2) %>
+                    <!--the icon needs to be parsed because if the precipitation prob is 0%, the given icon link does not work-->
+                    <!--thus, if the precipitation prob is 0%, i need to use a custom link for the icon-->
+                        <img class = "weatherIcon" src = <%= newLink %> alt = "No Rain">
+                    <% } else { %>
+                        <img class = "weatherIcon" src = <%=items[i].icon%> alt = "N/A">
+                    <% } %>
+                </div>
+                <!--section for printing all the data; all congregated in one place so that I can add more easily later-->
+                <!--each piece of data is named to represent what it is-->
+                <p class = "periodName">Day: <%= day %></p>
+                <p class = "time"> <%=convert(timeStart)%> - <%=convert(timeEnd)%></p>
+                <p class = "statistic">Temperature: <%=items[i].temperature%>°<%=items[i].temperatureUnit%></p>
+                <p class = "statistic">Forecast: <%=items[i].shortForecast%></p>
+                <p class = "statistic">Relative Humidity: <%=items[i].relativeHumidity.value%>%</p>
+                <p class = "statistic">Rain Chance: <%= precipitationProb %>%</p>
+            </div>
+        <% } %>
+    </div>
+
+    
+    <div>
+        <!--link back to the labs page-->
+        <h2 class = "centered"><a href = "/2023ayung/labs">Back to Labs</a></h2>
+    </div>
+</body>
+</html>

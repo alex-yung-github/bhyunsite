@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset = "utf-8">
+    <title>Alex Yung</title>
+    <meta http-equiv="X-UA-Compatible" content = "IE=edge">
+    <meta name = "viewport" content = "width=device-length, initial-scale = 1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300&family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <title>Bhyun's Site</title>
+    <style>
+        .title{
+            text-align: center;
+            font-family: "Josefin Sans";
+        }
+        .subhead{
+            font-size: 15px;
+            font-family: "Gentium Book Plus";
+            text-align: center;
+        }
+        div.container{
+            text-align: center;
+        }
+        ul{
+            display: inline-block;
+            text-align: left;
+        }
+    </style>
+        
+</head>
+<body>
+    <h1 class = "title">Unfortunately, that was not a valid latitude and longitude. Or, the API has failed. Refresh to try again.</h1>
+    <p class = "subhead">Common Error Examples:</p>
+    <div class = "container">
+        <ul>
+            <li>lat=42.88&long=2 (not in US)</li>
+            <li>lat=42.88&long=foo (non numeric value)</li>
+            <li>lat=42.88&long= (empty value)</li>
+            <li>lat=42.88 (missing key)</li>
+            <li>lat=35&long=-71 (valid us territory without forecast available)</li>
+            <li>lat=64&long=-147 (Alaska) ((I'm making sure you're not using a bounding box here))</li>
+            <li>lat=42.935602&long=-78.8692035 (too precise for the api)</li>
+        </ul>
+        <p><strong>Error Message: <%= item.detail %></strong></p>
+    </div>
+    <h1 class = "title">Thank you to Mr. Kosek for these examples</h1>
+</body>
+</html>

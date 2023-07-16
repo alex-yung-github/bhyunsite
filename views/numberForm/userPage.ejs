@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!--<link rel="stylesheet" type = "text/css" href="css/numberForm/numberPage.css">-->
+    <style>
+        .fact{
+            font-size: 15px;
+            font-family:'Lucida Sans';
+            text-align: center;
+            margin: 10;
+            padding: 0;
+        }
+        .centeredTitle{
+            font-size: 30px;
+            margin: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <p class = "centeredTitle">Hello, here are some facts about <strong><%= a %></strong> feet</p>
+    <div class = "fact-container">
+        <p class = "fact">If converting to number of meters, it is <%= f %>m</p>
+        <p class = "fact">If converting to number of miles, it is <%= g %>miles</p>
+        <p class = "fact">If converting to number of toes, it is <%= c %> toes</p>
+        <p class = "fact">If converting to number of beard-seconds (length a beard grows in a second), it is <%= d %> beard-seconds</p>
+        <p class = "fact">If converting to number of Mickeys (smallest resolvable unit of distance by a computer mouse), it is <%= e %> Mickeys</p>
+    </div>
+</body>
+</html>

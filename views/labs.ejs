@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type = "text/css" href="css/labs.css">
+    <title>Bhyun's Labs</title>
+        
+</head>
+<body>
+
+    <nav class = "navbar">
+        <div class = "titleholder">
+            <h1 class = "title"> laborati facti </h1>
+        </div>
+        <div class = "button_container">
+            <button class = "tab_button tab-button-active" data-for-tab = "1">Game Labs</button>
+            <button class = "tab_button" data-for-tab = "2">Form Labs</button>
+            <button class = "tab_button" data-for-tab = "3">Misc. Labs</button>
+        </div>
+    </nav>
+    <div class = "tab-content tab-content-active" data-tab = "1">
+        <div class = "gameImage">
+            <img src = "img/controllerImage.png" class = "bigImage" >
+        </div>
+        <div class = "gameContainer">
+            <div>
+            <h2 class = "gameTitle">Play TicTacToe [tictactoe lab]</h2>
+            <p class = "gameDesc">A game where you try to get three in a row whille
+            preventing your opponent form getting three in a row</p>
+            </div>
+            <div class = "gocontainer"><a class = "go" href='./tictactoe'>TicTacToe</a></div>
+            
+        </div>
+        <div class = "gameContainer">
+            <div>
+                <h2 class = "gameTitle">gamble. [coin flip lab]</h2>
+                <p class = "gameDesc">Guess heads or tails and pray you're right. Not a trap</p>
+            </div>
+            <div class = "gocontainer">
+                <a class = "go" href='./coinFlip1'>Guess Heads</a> | <a class = "go" href='./coinFlip2'>Guess Tails</a>
+            </div>
+        </div>
+        <div class = "gameContainer">
+            <div>
+                <h2 class = "gameTitle">Counter Page [extra]</h2>
+                <p class = "gameDesc">As you visit it more, you become cooler</p>
+            </div>
+            <div class = "gocontainer">
+                <a class = "go" href = "./placeholderPage"> Visit Page </a>
+            </div>
+        </div>
+    </div> 
+    
+    <div class = "tab-content" data-tab = "2">
+        <div class = "gameImage">
+            <img src = "img/weatherFormImages/rainImage.png" class = "bigImage">
+        </div>
+        <div class = "formContainer">
+            <div>
+            <h2 class = "gameTitle"> become certified [madlib lab]</h2>
+            <p class = "gameDesc">Input your information and created an artificial certificate
+            for yourself</p>
+            </div>
+            <div class = "gocontainer"><a class = "go" href='./madlib'>Certificate Creator</a></div>
+        </div>
+        <div class = "formContainer">
+            <div>
+            <h2 class = "gameTitle"> cool number facts [number form lab]</h2>
+            <p class = "gameDesc">Find cool facts about certain numbers</p>
+            </div>
+            <div class = "gocontainer"><a class = "go" href='./numberForm'>NumberKnower</a></div>
+        </div>
+        <div class = "formContainer">
+            <div>
+            <h2 class = "gameTitle"> know what to wear [weather form lab]</h2>
+            <p class = "gameDesc">Find the weather in your area based on latitude and longitude</p>
+            </div>
+            <div class = "gocontainer"><a class = "go" href='./weatherForm'>Find the Weather</a></div>
+        </div>
+    </div> 
+    
+    <div class = "tab-content" data-tab = "3">
+        <div class = "gameImage">
+            <img src = "img/magicImage.jpg" class = "bigImage" style = "max-width: 200%">
+        </div>
+        <div class = "formContainer">
+            <div>
+            <h2 class = "gameTitle"> know the school day [sprint lab 1] </h2>
+            <p class = "gameDesc">TJHSST's schedule for the day</p>
+            </div>
+            <div class = "gocontainer"><a class = "go" href='./weatherForm'>Ion Schedule</a></div>
+        </div>
+        <div class = "formContainer">
+            <div>
+            <h2 class = "gameTitle"> class selection [mySQL Lab] </h2>
+            <p class = "gameDesc">Choose a class from a database</p>
+            </div>
+            <div class = "gocontainer"><a class = "go" href='./classform'>Class Selector</a></div>
+        </div>
+        <div class = "formContainer">
+            <div>
+            <h2 class = "gameTitle"> cookie page [cookie miniLab] </h2>
+            <p class = "gameDesc">See what cookies are best</p>
+            </div>
+            <div class = "gocontainer"><a class = "go" href='./cookiepage'>Cookie Page</a></div>
+        </div>
+        <div class = "formContainer">
+            <div>
+            <h2 class = "gameTitle"> verification [oAuth lab] </h2>
+            <p class = "gameDesc">Are you real?</p>
+            </div>
+            <div class = "gocontainer"><a class = "go" href='./verificationPage'>Verification Page</a></div>
+        </div>
+    </div> 
+
+    <div class = "footer-part">
+        <h2 class = "centered"><a href="./" style="color: white; font-family: Lucida Sans; font-size:15px; border: 3px solid black; padding: 4px; text-decoration: none;">Back to Main Page</a></h2>
+    </div>
+    
+    <script>
+        function setupTabs(){
+            document.querySelectorAll(".tab_button").forEach(button =>{
+                button.addEventListener("click", () =>{
+                    const sideBar = button.parentElement.parentElement;
+                    const tabsContainer = sideBar.parentElement;
+                    const tabNumber = button.dataset.forTab;
+                    const tabToActivate = tabsContainer.querySelector(`.tab-content[data-tab='${tabNumber}']`);
+                    
+                    const buttonHolder = button.parentElement;
+                    console.log(buttonHolder)
+                    buttonHolder.querySelectorAll(".tab_button").forEach(button => {
+                        button.classList.remove("tab-button-active");
+                    })
+                    tabsContainer.querySelectorAll(".tab-content").forEach(tab => {
+                        tab.classList.remove("tab-content-active");
+                    })
+                    
+                    button.classList.add("tab-button-active");
+                    tabToActivate.classList.add("tab-content-active");
+                })
+            })
+        }
+        document.addEventListener("DOMContentLoaded", ()=>{
+            setupTabs();
+        })
+    </script>
+</body>
+</html>

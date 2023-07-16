@@ -1,0 +1,31 @@
+body{
+    background:lightgoldenrodyellow;
+}
+.title{
+    text-align: center;
+}
+#grid-container {
+    padding: 50px 0 50px 0;
+    border: solid paleturquoise 3px;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color:lightblue;
+    margin: auto;
+    width: 500px;
+}
+.grid-item{
+    font-size:50px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: solid black 3px;
+    padding: 50px;
+    width: auto;
+    height: auto;
+    margin: 0;
+}
+
+.svg-wrapper {
+    background-color: #F0F8FF;
+    width: 250px;
+    margin: auto;
+}

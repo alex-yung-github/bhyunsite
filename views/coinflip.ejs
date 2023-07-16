@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhyun's Site</title>
+    <style>
+        body{
+            background:lightgoldenrodyellow;
+        }
+        .title{
+            text-align: center;
+        }
+        #grid-container {
+            padding: 50px 0 50px 0;
+            border: solid paleturquoise 3px;
+            justify-content: center;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            background-color:lightblue;
+            margin: auto;
+            width: 500px;
+        }
+        .grid-item{
+            font-size:50px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            border: solid black 3px;
+            padding: 50px;
+            width: auto;
+            height: auto;
+            margin:none;
+        }
+      
+        .svg-wrapper {
+            background-color: #F0F8FF;
+            width: 250px;
+            margin: auto;
+        }
+        
+        .centered{
+            text-align:center;
+        }
+        .centeredImageHeads {
+            border-radius: 50%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align:center;
+            max-width: 30%;
+        }
+        .centeredImageTails{
+            border-radius: 50%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align:center;
+            max-width: 50%;
+        }
+    </style>
+        
+</head>
+<body>
+    <% if(val == 0 && guess == "0"){ %>
+    <h3 class = "centered"> You Guessed Heads...<h3>
+    <img src="img/heads.png" alt="Coin Heads" class = "centeredImageHeads">
+    <p class = "centered">It was Heads! You were right!</p>
+    
+    <% } else if(val == 1 && guess == "0"){ %>
+    <h3 class = "centered"> You Guessed Heads...<h3>
+    <img src="img/tails.png" alt="Coin Tails" class = "centeredImageTails">
+    <p class = "centered">It was Tails! You were wrong!</p>
+    
+    <% } else if(val == 1 && guess == "1"){ %>
+    <h3 class = "centered"> You Guessed Tails...<h3>
+    <img src="img/tails.png" alt="Coin Tails" class = "centeredImageTails">
+    <p class = "centered">It was Tails! You were right!</p>
+    
+    <% } else if(val == 0 && guess == "1"){ %>
+    <h3 class = "centered"> You Guessed Tails...<h3>
+    <img src="img/heads.png" alt="Coin Heads" class = "centeredImageHeads">
+    <p class = "centered">It was Heads! You were wrong!</p>
+    <% } %>
+    
+    
+    <br>
+    <div>
+        <h2 class = "centered"><a href = "./coinFlip1">There is no going back</a><a href="./labs">.</a></h2>
+    </div>
+    
+    
+    
+    
+</body>
+</html>
