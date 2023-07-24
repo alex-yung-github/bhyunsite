@@ -131,26 +131,26 @@ i_router.get('/stockAnalysis/:stock', async (req, res, next) => {
     // third midware = get stock data
 
     //TEMP STUFF FOR TESTING, COMMENT OUT WHEN DONE
-    res.locals.stock_data = "165.02,5.88,0.91,0.55%,28.06,6.72,44.85,2.72,1.66% ,39.61 USD,22.23 ,996.29 USD,SSNLF,SONY,VZIO,PCRFY"
-    next()
+    // res.locals.stock_data = "165.02,5.88,0.91,0.55%,28.06,6.72,44.85,2.72,1.66% ,39.61 USD,22.23 ,996.29 USD,SSNLF,SONY,VZIO,PCRFY"
+    // next()
     //END OF TEMP STUF FOR TESTING
 
-    // var stock_data;
-    // const python = spawn('python', ["scratchScraper.py", res.locals.stock]);
+    var stock_data;
+    const python = spawn('python', ["scratchScraper.py", res.locals.stock]);
 
-    // python.stdout.on('data', function(data) {
-    //     stock_data = data.toString();
-    //     res.locals.stock_data = stock_data
-    // });
+    python.stdout.on('data', function(data) {
+        stock_data = data.toString();
+        res.locals.stock_data = stock_data
+    });
 
-    // python.on('data', data => {
-    //     console.error(`stderr: ${data}`)
-    // })
+    python.on('data', data => {
+        console.error(`stderr: ${data}`)
+    })
 
-    // python.on('exit', (code) => {
-    //     console.log(`child process exited with code ${code} ${stock_data} \n`);
-    //     next()
-    // })
+    python.on('exit', (code) => {
+        console.log(`child process exited with code ${code} ${stock_data} \n`);
+        next()
+    })
 
 }, (req, res) => {
 

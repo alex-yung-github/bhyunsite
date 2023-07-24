@@ -24,6 +24,7 @@ const class_router = require('./routes/heroesSource')
 const cookie_router = require("./routes/cookieSource")
 const mday_router = require("./routes/mdaySource")
 const verification_router = require("./routes/oAuthLab.js")
+const invest_router = require('./routes/investingSource')
 app.use(madlib_router);
 app.use(coinflip_router);
 app.use(numberForm_router);
@@ -33,6 +34,7 @@ app.use(class_router);
 app.use(cookie_router);
 app.use(mday_router);
 app.use(verification_router)
+app.use(invest_router);
 
 app.get('/', (req, res) => {
     res.render('index')

@@ -13,17 +13,17 @@
 
     <!-- Preprocessing Start-->
     <% tempList = analysisData.split(",") %>
-    <% let itemNames = ['price', 'eps', 'div_rate', 'div_yield', 'pe_ratio', 'price/sales', 'price/book', 'price/earnings-growth', 'SNPDiv_yield', 'SNP_eps', 'SNP_pe_ratio', 'SNP_bookvalpershare', 'competitor1', 'competitor2', 'competitor3', 'competitor4'] %>
+    <% let itemNames = ['price', 'eps', 'div_rate', 'div_yield', 'pe_ratio', 'price/sales', 'price/book', 'price/earnings-growth', 'SNP_pe_ratio', 'SNP_bookvalpershare', 'competitor1', 'competitor2', 'competitor3', 'competitor4'] %>
     <% let stock_dictionary = {}; %>
     <% let index_dictionary = {}; %>
     <% let competitor_dictionary = {}; %>
     <% for (let i = 0; i < 8; i++){ %>
     <%      stock_dictionary[itemNames[i]] = tempList[i]; %>
     <% } %>
-    <% for (let i = 8; i < 12; i++){ %>
+    <% for (let i = 8; i < 10; i++){ %>
     <%      index_dictionary[itemNames[i]] = tempList[i]; %>
     <% } %>
-    <% for (let i = 12; i < tempList.length; i++){ %>
+    <% for (let i = 10; i < tempList.length; i++){ %>
     <%      competitor_dictionary[itemNames[i]] = tempList[i]; %>
     <% } %>
     <!-- Preprocessing End -->

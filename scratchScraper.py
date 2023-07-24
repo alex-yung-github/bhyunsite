@@ -9,13 +9,13 @@ headers = headers = {
     'DNT'             : '1', # Do Not Track Request Header 
     'Connection'      : 'close'
 }
-SNPURL = "https://ycharts.com/indicators/reports/sp_500_earnings"
+SNPURL = "https://ycharts.com/indicators/sp_500_dividend_yield"
 genericURL = 'https://finance.yahoo.com/quote/'
 
 def getSoupParsers(company):
     companyURL = genericURL + company
     mainURL = companyURL + "?p=" + company + "&.tsrc=fin-srch"
-    page = requests.get(mainURL)
+    page = requests.get(mainURL, headers=headers, timeout=5)
     companyWorks = page.status_code
     # print("Connected Status Main: ", companyWorks, " | URL: ", mainURL) #for debugging
     if(companyWorks != 200):
@@ -102,15 +102,14 @@ def indexStats(): #returns dividend yield, earnings per share, pe ratoi, and boo
     # print("Connected Status S&P 500 Page: ", SNP500Page.status_code) # for debugging
     if(SNP500Page.status_code == 503 or SNP500Page.status_code == 404):
         return "SNP Page is Down"
-    SNPDividendYield = SNP500Soup.find(string="S&P 500 Dividend Yield").findParent().findParent().findNextSibling().findNextSibling().text
     # print("S&P 500 Average Dividend Yield: ", SNPDividendYield)
-    SNPearningsPerShare = SNP500Soup.find("a", {'href': "/indicators/sp_500_eps"}).findParent().findNextSibling().findNextSibling().text
+    # SNPearningsPerShare = SNP500Soup.find("a", {'href': "/indicators/sp_500_eps"}).findParent().findNextSibling().findNextSibling().text
     # print("S&P 500 Earnings Per Share: ", SNPearningsPerShare)
-    SNPPERatio = SNP500Soup.find_all("a", {'href': "/indicators/sp_500_pe_ratio"})[-1].findParent().findNextSibling().findNextSibling().text
+    SNPPERatio = SNP500Soup.find_all("a", {'href': "/indicators/sp_500_pe_ratio"})[-1].findParent().findNextSibling().text.strip()
     # print("S&P 500 P/E Ratio: ", SNPPERatio)
-    SNPBookValPerShare = SNP500Soup.find(string="S&P 500 Book Value Per Share").findParent().findParent().findNextSibling().findNextSibling().text
+    SNPBookValPerShare = SNP500Soup.find_all("a", {'href': "/indicators/sp_500_price_to_book_ratio"})[-1].findParent().findNextSibling().text.strip()
     # print("S&P 500 Book per Share: ", SNPBookValPerShare)
-    return [SNPDividendYield, SNPearningsPerShare, SNPPERatio, SNPBookValPerShare]
+    return [SNPPERatio, SNPBookValPerShare]
 
 #portion 2 get competitors
 def getCompetitors(company):
@@ -178,7 +177,8 @@ def main(inputCompany):
 
 
 if __name__ == "__main__":
-    inp = sys.argv[1]
+    # inp = sys.argv[1]
+    inp = "AAPL"
     vals = main(inp)
     print(vals[0:-1])
     sys.stdout.flush()
