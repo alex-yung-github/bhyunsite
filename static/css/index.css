@@ -122,7 +122,7 @@ body{
     vertical-align: middle;
     text-decoration:none;
     padding:3vw;
-    padding-top: 2vw;
+    padding-top: 4vw;
     /* transition effect. not necessary */
     /* transition: opacity .2s, visibility .2s; */
   }
