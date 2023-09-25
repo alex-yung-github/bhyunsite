@@ -4,6 +4,13 @@
 - Open the folder where you cloned this repository
 - Run 'node index.js'
 
+## Stock Analysis Website [WIP]
+- On the main page of the website, the rightmost picture will be a button that leads you to the stock analysis site. Note that a few of the features are currently in testing and are not complete.
+- Currently, the Python backend is capable of pulling information from the stock API (finnhub.io) and scraping information from sites such as Yahoo Finance, but for testing purposes manual values are inputted.
+- TBD: Candlestick graph display of a given stock
+- TBD: Algorithm that analyzes the candlestick graph of a stock (such as morningstar, hammerhead, etc)
+- TBD: Comparison of the given stock to the general industry and other competing stocks.
+
 # Explanation of the Site
 
 ## Main File and Routes
